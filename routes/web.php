@@ -32,7 +32,9 @@ Route::get('/', function () {
     //     logger("Hello World");
     // });
     /** Using Job Class */
-    /** Important note : If the job class don't implement ShouldQueue then it will behave as sync and will not use the queue connection driver and no entries thus made to the jobs table */
+    /** Important note : If the job class don't implement ShouldQueue then it will behave as sync and will not use the queue connection driver and no entries thus made to the jobs table.
+     * One more thing if laravel horizon is being used when queue connection driver is being redis.
+     */
     dispatch(new \App\Jobs\LogUser);
     // return view('welcome');
 });
