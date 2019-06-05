@@ -1,4 +1,5 @@
 <?php
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,3 +40,20 @@ Route::get('/', function () {
     dispatch(new \App\Jobs\LogUser);
     // return view('welcome');
 });
+Route::get('/upload-image', function(){
+    return view('welcome');
+});
+
+// Route::post('/upload-image', function(Request $request){
+//     // dump($request);
+//     // dd(request());
+//     dispatch(new \App\Jobs\UploadImages($request));
+// });
+
+Route::post('/upload-image', 'UploadImageController');
+/**
+ * Please note Serialization of 'Illuminate\Http\UploadedFile' is not allowed On queue
+ * so the above was not successfull. But there is an approach that image upload 
+ * can be done first and save on disk and then thumbnail processing can be done
+ * on the images being saved with respect to a model.
+ */

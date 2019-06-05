@@ -85,13 +85,19 @@
                 </div>
 
                 <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                    <form action="/upload-image" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <section>
+                            <label for="album_name">Album Name</label>
+                            <input type="text" name="album_name" id="album_name">
+                        </section>
+                        <section>
+                            <label for="linked_images">Image</label>
+                            <input type="file" name="linked_images[]" id="linked_images" multiple>
+                        </section>
+                        <input type="submit" value="submit">
+
+                    </form>
                 </div>
             </div>
         </div>
