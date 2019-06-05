@@ -12,6 +12,14 @@
 */
 
 Route::get('/', function () {
-    logger("Hello World");
+    // logger("Hello World");
+    /** synchronous job since config/queue.php is set to sync for QUEUE_CONNECTION
+     * 
+     * 'default' => env('QUEUE_CONNECTION', 'sync'),
+     */
+    // dispatch(function(){
+    //     logger("Hello World");
+    // });
+    
     // return view('welcome');
 });
