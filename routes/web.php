@@ -20,6 +20,19 @@ Route::get('/', function () {
     // dispatch(function(){
     //     logger("Hello World");
     // });
-    
+    /** queue with async approach with database driver
+     * php artisan queue:table
+     * php artisan migrate
+     * php artisan queue:failed-table
+     * php artisan migrate
+     * php artisan queue:work
+     */
+    /** Using callback */
+    // dispatch(function(){
+    //     logger("Hello World");
+    // });
+    /** Using Job Class */
+    /** Important note : If the job class don't implement ShouldQueue then it will behave as sync and will not use the queue connection driver and no entries thus made to the jobs table */
+    dispatch(new \App\Jobs\LogUser);
     // return view('welcome');
 });
